@@ -20,6 +20,8 @@ public class User {
         this.gender=gender;
     }
 
+    public User() {}
+
     //Getter and setter methods
 
     public String getGender() {

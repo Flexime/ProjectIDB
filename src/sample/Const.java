@@ -4,7 +4,9 @@ public class Const {
     public static final String USER_TABLE ="users";
     public static final String USER_NAME = "user_name";
     public static final String USER_MAIL = "user_mail";
+    public static final String USER_PASSWORD ="user_password";
     public static final String USER_GENDER = "user_gender";
+
 
     public static final String USERS_ID ="id";
     public static final String USER_FIRST_NAME="first_name";
