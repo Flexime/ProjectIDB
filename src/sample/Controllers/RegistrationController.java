@@ -1,16 +1,12 @@
-package sample;
+package sample.Controllers;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.mysql.cj.xdevapi.SqlDataResult;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
+import sample.DataBaseHandler;
+import sample.User;
 
 public class RegistrationController {
 
