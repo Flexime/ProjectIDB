@@ -13,19 +13,21 @@ public class DataBaseHandler extends Configs {
                 dbUser,dbPass);
         return  dbConnection;
     }
-    public void signUpUser(String first_name,String last_name,String username ,
-                           String password,String mail){
+    public void signUpUser(User user){
         String insert = "INSERT INTO "
                 +Const.USER_TABLE+"(" + Const.USER_FIRST_NAME + ","
-                +Const.USER_LAST_NAME +"," +Const.USER_NAME+ Const.USER_MAIL + ")"+
-                "VALUES(?,?,?,?,?)";
+                +Const.USER_LAST_NAME +"," +Const.USER_NAME+ Const.USER_MAIL +
+                Const.USER_GENDER+")"+
+                "VALUES(?,?,?,?,?,?)";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
-            prSt.setString(1,first_name);
-            prSt.setString(1,last_name);
-            prSt.setString(1,mail);
-            prSt.setString(1,username);
-            prSt.setString(1,password);
+            prSt.setString(1,user.getFirstName());
+            prSt.setString(2,user.getLastName());
+            prSt.setString(3,user.getUserName());
+            prSt.setString(4,user.getPassword());
+            prSt.setString(5,user.getMail());
+            prSt.setString(6,user.getGender());
+
 
             prSt.executeUpdate();
         }catch (SQLException e){
