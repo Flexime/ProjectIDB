@@ -12,19 +12,6 @@ public class ClientTable {
     private StringProperty  endDate;
     private StringProperty  summ;
 
-
-  /*  public ClientTable(StringProperty company, StringProperty first_name, StringProperty last_name,
-                       StringProperty pnumber, StringProperty creationDate, StringProperty startDate, StringProperty endDate, StringProperty summ) {
-        this.company = company;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.pnumber = pnumber;
-        this.creationDate = creationDate;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.summ = summ;
-    }*/
-
     public ClientTable() {
         this.company = company;
         this.first_name = first_name;
