@@ -25,8 +25,7 @@ public class ClientTable {
         this.summ = summ;
     }*/
 
-    public ClientTable(StringProperty company, StringProperty first_name, StringProperty last_name,
-                       StringProperty pnumber, StringProperty creationDate, StringProperty startDate, StringProperty endDate, StringProperty summ) {
+    public ClientTable() {
         this.company = company;
         this.first_name = first_name;
         this.last_name = last_name;
