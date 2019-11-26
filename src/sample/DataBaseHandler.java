@@ -124,7 +124,7 @@ public class DataBaseHandler extends Configs {
             ObservableList<ClientTable> tablelist = FXCollections.observableArrayList();
 
             while (resSet.next()){
-           /**    ClientTable tab = new ClientTable();
+                ClientTable tab = new ClientTable();
                 tab.setCompany(resSet.getString("company"));
                 tab.setFirst_name(resSet.getString("first_name"));
                 tab.setLast_name("last_name");
@@ -133,7 +133,7 @@ public class DataBaseHandler extends Configs {
                 tab.setStartDate("StartDate");
                 tab.setEndDate("EndDate");
                 tab.setSumm("summ");
-                tablelist.add(tab);*/
+                tablelist.add(tab);
             }
             return tablelist;
         } catch (SQLException e){
@@ -152,8 +152,8 @@ public class DataBaseHandler extends Configs {
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(delete);
-//            prSt.setString(1, client.getFirst_name());
-//            prSt.setString(2, client.getLast_name());
+           prSt.setString(1, firstname);
+            prSt.setString(2, lastname);
 
              prSt.executeUpdate();
 
