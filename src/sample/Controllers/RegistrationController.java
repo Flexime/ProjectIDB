@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import sample.DataBaseHandler;
-import sample.User;
+import Constructors.User;
 
 public class RegistrationController {
 
@@ -16,43 +16,29 @@ public class RegistrationController {
     @FXML
     private URL location;
 
-    //SIGN UP buttons //
+
 
     @FXML
-    private TextField login_field;
+    private Button authSignInButton;
+
+    @FXML
+    private  TextField firstname_field;
+
+    @FXML
+    private TextField lastname_field;
+
+    @FXML
+    private TextField username_field;
+
     @FXML
     private PasswordField password_field;
-    @FXML
-    private Button authSignInButton;
-    @FXML
-    private  TextField signUpFirstName;
-    @FXML
-    private TextField signUpLastName;
-    @FXML
-    private CheckBox signUpCheckBoxMale;
+
     @FXML
     private TextField mail_field;
 
-
-    //login buttons
-
     @FXML
-    private Button loginSignUpButton;
+    private RadioButton male_radiobutton;
 
-    @FXML
-    private TextField login_field1;
-
-    @FXML
-    private TextField login_field11;
-
-    @FXML
-    private TextField login_field111;
-
-    @FXML
-    private TextField login_field1111;
-
-    @FXML
-    private PasswordField password_field1;
 
     @FXML
     private MenuItem Exit;
@@ -62,7 +48,6 @@ public class RegistrationController {
         DataBaseHandler dbHandler = new DataBaseHandler();
 
         authSignInButton.setOnAction(event -> {
-
             signUpNewUser();
 
         });
@@ -71,13 +56,13 @@ public class RegistrationController {
     private void signUpNewUser() {
         DataBaseHandler dbHandler = new DataBaseHandler();
 
-        String firstName = signUpFirstName.getText();
-        String lastName = signUpLastName.getText();
-        String userName = login_field.getText();
+        String firstName = firstname_field.getText();
+        String lastName = lastname_field.getText();
+        String userName = username_field.getText();
         String password = password_field.getText();
         String mail = mail_field.getText();
         String gender = "";
-        if(signUpCheckBoxMale.isSelected())
+        if(male_radiobutton.isSelected())
             gender="Мужской";
         else
             gender= "Женский";

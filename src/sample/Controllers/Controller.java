@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import animations.Shake;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +17,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.DataBaseHandler;
-import sample.User;
+import Constructors.User;
 
 
 public class Controller {
@@ -46,24 +47,25 @@ public class Controller {
         authSignInButton.setOnAction(event ->{
             String loginText = login_field.getText().trim();
             String loginPassword = password_field.getText().trim();
+
             if(!loginText.equals("") && !loginPassword.equals("")) {
                 loginUser(loginText, loginPassword);
             } else
                 System.out.println("Error Login and password is empty");
         } );
 
-       loginSignUpButton.setOnAction(event -> {
-            loginSignUpButton.getScene().getWindow().hide();
+        loginSignUpButton.setOnAction(event -> {
             openNewScene("/sample/FXMLs/registration.fxml");
         });
-
     }
 
     private void loginUser(String loginText, String loginPassword) {
         DataBaseHandler dbHandler= new DataBaseHandler();
         User user = new User();
+
         user.setUserName(loginText);
         user.setPassword(loginPassword);
+
         ResultSet result = dbHandler.getUser(user);
         int counter =0;
         while (true){
@@ -75,10 +77,16 @@ public class Controller {
             counter++;
         }
         if (counter >= 1 ){
-            openNewScene("");
+            openNewScene("/sample/FXMLs/main_page.fxml");
             System.out.println("Success!");
+            }else {
+            Shake userLoginAnim = new Shake(login_field);
+            Shake userPassAnim = new Shake(password_field);
+            userLoginAnim.playAnim();
+            userPassAnim.playAnim();
         }
     }
+
     public void  openNewScene(String window){
 
             FXMLLoader loader = new FXMLLoader();

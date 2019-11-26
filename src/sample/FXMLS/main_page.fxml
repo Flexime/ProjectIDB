@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -35,34 +41,77 @@
             </menus>
         </MenuBar>
         <AnchorPane layoutX="-14.0" layoutY="21.0" prefHeight="130.0" prefWidth="1228.0" style="-fx-background-color: #394643;">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="63.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="5.0">
-               <image>
-                  <Image url="@../Assets/logo.png" />
-               </image>
-            </ImageView>
-         </children>
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="63.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="5.0">
+                    <image>
+                        <Image url="@../Assets/logo.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="62.0" fitWidth="56.0" layoutX="1055.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Assets/ava.png" />
+                    </image>
+                </ImageView>
+                <MenuButton fx:id="menuButton" layoutX="1064.0" layoutY="43.0" mnemonicParsing="false" opacity="0.0" prefHeight="47.0" prefWidth="38.0" style="-fx-background-color: white;">
+                    <items>
+                        <MenuItem fx:id="menuSettings" mnemonicParsing="false" text="Settings" />
+                        <MenuItem fx:id="menuLogOut" mnemonicParsing="false" text="Log Out" />
+                    </items>
+                </MenuButton>
+            </children>
         </AnchorPane>
-      <HBox layoutX="4.0" layoutY="151.0" prefHeight="549.0" prefWidth="1196.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="151.0">
-         <children>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="550.0" prefWidth="217.0" vbarPolicy="ALWAYS">
-               <content>
-                  <VBox prefHeight="546.0" prefWidth="197.0">
-                     <children>
-                        <Label alignment="CENTER" style="-fx-font-family: Bahnschrift Light;" text="Databases" textFill="#3a4345">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <padding>
-                              <Insets left="30.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                  </VBox>
-               </content>
-            </ScrollPane>
-              <AnchorPane prefHeight="550.0" prefWidth="994.0" style="-fx-background-color: #f0f0f0;" />
-         </children>
-      </HBox>
+        <HBox layoutX="4.0" layoutY="151.0" prefHeight="549.0" prefWidth="1196.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="151.0">
+            <children>
+                <ScrollPane hbarPolicy="NEVER" prefHeight="550.0" prefWidth="217.0" vbarPolicy="ALWAYS">
+                    <content>
+                        <VBox prefHeight="546.0" prefWidth="197.0">
+                            <children>
+                                <Label alignment="CENTER" style="-fx-font-family: Bahnschrift Light;" text="Databases" textFill="#3a4345">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="30.0" />
+                                    </padding>
+                                </Label>
+                                <Separator prefWidth="200.0" />
+                            </children>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+                <AnchorPane prefHeight="550.0" prefWidth="994.0" style="-fx-background-color: #f0f0f0;">
+                    <children>
+                        <TableView fx:id="mainInfoTable" editable="true" layoutX="16.0" layoutY="126.0" prefHeight="394.0" prefWidth="957.0" AnchorPane.leftAnchor="16.0">
+                            <columns>
+                                <TableColumn fx:id="MIT_id" prefWidth="75.0" text="ID" />
+                                <TableColumn fx:id="MIT_company" minWidth="0.0" prefWidth="97.06671142578125" text="Company" />
+                                <TableColumn fx:id="MIT_first_name" prefWidth="124.26669311523438" text="First Name" />
+                                <TableColumn fx:id="MIT_last_name" prefWidth="109.86672973632812" text="Last Name" />
+                                <TableColumn fx:id="MIT_phone_number" prefWidth="134.93328857421875" text="Phone Number" />
+                                <TableColumn fx:id="MIT_creation_date" minWidth="1.5999755859375" prefWidth="107.46661376953125" text="Creation Date" />
+                                <TableColumn fx:id="MIT_start_date" minWidth="1.5999755859375" prefWidth="107.46661376953125" text="Start Date" />
+                                <TableColumn fx:id="MIT_end_date" minWidth="1.5999755859375" prefWidth="107.46661376953125" text="End Date" />
+                                <TableColumn fx:id="MIT_summ" minWidth="1.5999755859375" prefWidth="107.46661376953125" text="Summ" />
+                            </columns>
+                        </TableView>
+                        <AnchorPane layoutX="16.0" layoutY="14.0" prefHeight="107.0" prefWidth="958.0" style="-fx-background-color: #f0f0f0;">
+                            <children>
+                                <Button fx:id="delete_button" layoutX="854.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #139d7e; -fx-font-family: Bahnschrift Light;" text="Delete" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="70.0" />
+                                <Button fx:id="search_button" layoutX="749.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #139d7e; -fx-font-family: Bahnschrift Light;" text="Search" textFill="WHITE" AnchorPane.rightAnchor="114.0" AnchorPane.topAnchor="70.0" />
+                                <Button fx:id="add_button" layoutX="644.0" layoutY="70.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #139d7e; -fx-font-family: Bahnschrift Light;" text="Add" textFill="WHITE" AnchorPane.rightAnchor="214.0" AnchorPane.topAnchor="70.0" />
+                                <TextField fx:id="MIT2_id" layoutX="7.0" layoutY="14.0" prefHeight="26.0" prefWidth="59.0" promptText="ID" style="-fx-font-family: Bahnschrift Light; -fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="14.0" />
+                                <TextField fx:id="MIT2_company" layoutX="78.0" layoutY="14.0" prefHeight="26.0" prefWidth="89.0" promptText="Company" style="-fx-font-family: Bahnschrift Light; -fx-background-color: white;" AnchorPane.leftAnchor="69.0" AnchorPane.topAnchor="14.0" />
+                                <TextField fx:id="MIT2_first_name" layoutX="177.0" layoutY="13.0" prefHeight="26.0" prefWidth="118.0" promptText="First Name" style="-fx-font-family: Bahnschrift Light; -fx-background-color: white;" AnchorPane.leftAnchor="168.0" AnchorPane.topAnchor="14.0" />
+                                <TextField fx:id="MIT2_last_name" layoutX="312.0" layoutY="23.0" prefHeight="26.0" prefWidth="118.0" promptText="Last Name" style="-fx-font-family: Bahnschrift Light; -fx-background-color: white;" AnchorPane.leftAnchor="296.0" AnchorPane.topAnchor="14.0" />
+                                <TextField fx:id="MIT2_phone_number" layoutX="417.0" layoutY="25.0" prefHeight="26.0" prefWidth="118.0" promptText="Phone Number" style="-fx-font-family: Bahnschrift Light; -fx-background-color: white;" AnchorPane.leftAnchor="424.0" AnchorPane.topAnchor="14.0" />
+                                <TextField fx:id="MIT2_start_date" layoutX="664.0" layoutY="16.0" prefHeight="26.0" prefWidth="100.0" promptText="Start Date" style="-fx-font-family: Bahnschrift Light; -fx-background-color: white;" AnchorPane.leftAnchor="662.0" AnchorPane.topAnchor="14.0" />
+                                <TextField fx:id="MIT2_creation_name" layoutX="554.0" layoutY="26.0" prefHeight="26.0" prefWidth="100.0" promptText="Creation Date" style="-fx-font-family: Bahnschrift Light; -fx-background-color: white;" AnchorPane.leftAnchor="552.0" AnchorPane.topAnchor="14.0" />
+                                <TextField fx:id="MIT2_end_date" layoutX="770.0" layoutY="26.0" prefHeight="26.0" prefWidth="100.0" promptText="End Date" style="-fx-font-family: Bahnschrift Light; -fx-background-color: white;" AnchorPane.leftAnchor="772.0" AnchorPane.topAnchor="14.0" />
+                                <TextField fx:id="MIT2_summ" layoutX="861.0" layoutY="36.0" prefHeight="26.0" prefWidth="70.0" promptText="Summ" style="-fx-font-family: Bahnschrift Light; -fx-background-color: white;" AnchorPane.leftAnchor="882.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0" />
+                            </children>
+                        </AnchorPane>
+                    </children></AnchorPane>
+            </children>
+        </HBox>
     </children>
 </AnchorPane>

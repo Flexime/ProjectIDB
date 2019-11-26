@@ -1,8 +1,14 @@
 package sample.Controllers;
 
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import Constructors.ClientTable;
+import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import Constructors.Clientb;
@@ -100,19 +106,20 @@ public class HomeController {
     private TextField MIT2_summ;
 
     @FXML
-    void initialize() {
+    void initialize() throws Exception {
         add_button.setOnAction(event -> {
             insertClient();
         });
+
+//        MIT_company.setCellValueFactory(cellData -> cellData.getValue().getCompany.asObject);
 
         delete_button.setOnAction(event -> {
             String firstname = MIT2_first_name.getText().trim();
             String lastname = MIT2_last_name.getText().trim();
 
-            if (!firstname.equals("") && !lastname.equals("")){
+            if (!firstname.equals("") && !lastname.equals("")) {
                 deleteClient(firstname, lastname);
-            }
-                else {
+            } else {
                 System.out.println("CLIENT NOT FOUND");
             }
         });
@@ -122,22 +129,27 @@ public class HomeController {
         });
     }
 
-    
-    private  void insertClient(){
-        DataBaseHandler dbHandler = new DataBaseHandler();
-       String company = MIT2_company.getText();
-       String first_name = MIT2_first_name.getText();
-       String  last_name = MIT2_last_name.getText();
-       String pnumber = MIT2_phone_number.getText();
-       String creationDate = MIT2_creation_name.getText();
-       String Start_date = MIT2_start_date.getText();
-       String endDate = MIT2_end_date.getText();
-       String summ = MIT2_summ.getText();
 
-        Clientb client = new Clientb(company,first_name,last_name,pnumber,creationDate,Start_date,endDate,summ);
+    private void insertClient() {
+        DataBaseHandler dbHandler = new DataBaseHandler();
+        String company = MIT2_company.getText();
+        String first_name = MIT2_first_name.getText();
+        String last_name = MIT2_last_name.getText();
+        String pnumber = MIT2_phone_number.getText();
+        String creationDate = MIT2_creation_name.getText();
+        String Start_date = MIT2_start_date.getText();
+        String endDate = MIT2_end_date.getText();
+        String summ = MIT2_summ.getText();
+
+        Clientb client = new Clientb(company, first_name, last_name, pnumber, creationDate, Start_date, endDate, summ);
 
         dbHandler.insertClient(client);
     }
+
+
+
+
+
 
     private void deleteClient(String firstname,String lastname){
         DataBaseHandler dbHandler = new DataBaseHandler();
